@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: function-pipeline
+spec:
+  resources:
+  - name: app-source
+    type: git
+  - name: app-image
+    type: image
+  tasks:
+  - name: build-function
+    taskRef:
+      name: function-task
+    params:
+    - name: contextDir
+      value: app
+    resources:
+      inputs:
+      - name: source
+        resource: app-source
+      outputs:
+      - name: builtImage
+        resource: app-image
