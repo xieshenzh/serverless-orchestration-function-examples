@@ -8,13 +8,17 @@ spec:
     type: git
   - name: app-image
     type: image
+  params:
+  - name: context
+    type: string
+    default: app
   tasks:
   - name: build-function
     taskRef:
       name: function-task
     params:
     - name: contextDir
-      value: app
+      value: "${params.context}"
     resources:
       inputs:
       - name: source
