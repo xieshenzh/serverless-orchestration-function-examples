@@ -1,0 +1,11 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: saveresults
+spec:
+  template:
+    metadata:
+      name: saveresults-v1
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/serverless-orchestration/saveresults

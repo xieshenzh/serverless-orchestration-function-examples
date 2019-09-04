@@ -11,6 +11,6 @@ public class HelloWorld {
 
     @GET
     public String deploy() {
-        return "{ \"output\" : \"hello world\"}";
+        return "{\"output\" : \"hello world\"}";
     }
 }

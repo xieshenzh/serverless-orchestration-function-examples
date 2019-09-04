@@ -1,0 +1,23 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: saveresults-git-source
+spec:
+  type: git
+  params:
+  - name: url
+    value: https://github.com/xiezhang7/serverless-orchestration-function-examples
+  - name: revision
+    value: master
+
+---
+
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: saveresults-image
+spec:
+  type: image
+  params:
+  - name: url
+    value: "image-registry.openshift-image-registry.svc:5000/serverless-orchestration/saveresults"
